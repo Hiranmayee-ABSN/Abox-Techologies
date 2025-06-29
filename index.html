@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABOX Technologies - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    .hero-bg {
+      background: linear-gradient(to right, rgba(59,130,246,0.8), rgba(147,51,234,0.8)), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1650&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-3xl font-extrabold text-indigo-600">ABOX Technologies</div>
+      <nav class="space-x-6 text-sm font-semibold">
+        <a href="#" class="text-indigo-600">Home</a>
+        <a href="about.html" class="hover:text-indigo-500 transition">About</a>
+        <a href="services.html" class="hover:text-indigo-500 transition">Services</a>
+        <a href="portfolio.html" class="hover:text-indigo-500 transition">Portfolio</a>
+        <a href="contact.html" class="hover:text-indigo-500 transition">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-bg text-white h-[85vh] flex items-center">
+    <div class="max-w-4xl px-6 mx-auto text-center">
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight" id="hero-title">Innovating Technology,<br>Empowering You</h1>
+      <p class="text-xl md:text-2xl mb-6 max-w-xl mx-auto opacity-90">We build immersive, innovative, and intelligent digital solutions.</p>
+     <a href="services.html" class="inline-block px-6 py-3 rounded-full bg-white text-indigo-700 font-semibold text-sm shadow-lg hover:bg-indigo-100 transition">Explore Our Services</a>
+
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <h2 class="text-4xl font-bold mb-4">What We Do</h2>
+        <p class="text-gray-600 max-w-xl mx-auto">From responsive web platforms to mobile experiences, we engineer your digital future.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="p-8 bg-white rounded-xl shadow-xl transform transition duration-300 hover:-translate-y-2" id="card-1">
+          <div class="text-indigo-600 text-3xl mb-4"><i class="fas fa-laptop-code"></i></div>
+          <h3 class="text-xl font-semibold mb-2">Web Development</h3>
+          <p class="text-gray-600">Modern websites with blazing speed, SEO, and mobile-first design.</p>
+        </div>
+        <div class="p-8 bg-white rounded-xl shadow-xl transform transition duration-300 hover:-translate-y-2" id="card-2">
+          <div class="text-indigo-600 text-3xl mb-4"><i class="fas fa-mobile-alt"></i></div>
+          <h3 class="text-xl font-semibold mb-2">Mobile Apps</h3>
+          <p class="text-gray-600">Cross-platform applications for iOS & Android with fluid performance.</p>
+        </div>
+        <div class="p-8 bg-white rounded-xl shadow-xl transform transition duration-300 hover:-translate-y-2" id="card-3">
+          <div class="text-indigo-600 text-3xl mb-4"><i class="fas fa-bullhorn"></i></div>
+          <h3 class="text-xl font-semibold mb-2">Digital Marketing</h3>
+          <p class="text-gray-600">Maximize reach with targeted campaigns, SEO, and social media strategy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-6 text-center text-sm text-gray-500">
+    &copy; 2025 ABOX Technologies. Built with ❤️ and innovation.
+  </footer>
+
+  <!-- GSAP Animations -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("#hero-title", {
+      duration: 1.5,
+      y: 50,
+      opacity: 0,
+      ease: "power4.out"
+    });
+
+    gsap.utils.toArray(["#card-1", "#card-2", "#card-3"]).forEach((card, i) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 80%"
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        delay: i * 0.1,
+        ease: "power2.out"
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abox Technologies - Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-3xl font-extrabold text-indigo-600">Abox</div>
+      <nav class="space-x-6 text-sm font-semibold">
+        <a href="index.html" class="hover:text-indigo-500 transition">Home</a>
+        <a href="about.html" class="hover:text-indigo-500 transition">About</a>
+        <a href="services.html" class="text-indigo-600">Services</a>
+        <a href="portfolio.html" class="hover:text-indigo-500 transition">Portfolio</a>
+        <a href="contact.html" class="hover:text-indigo-500 transition">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative h-[60vh] flex items-center justify-center text-white text-center" style="background: linear-gradient(to right, rgba(79,70,229,0.85), rgba(124,58,237,0.85)), url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1400&q=80'); background-size: cover; background-position: center;">
+    <div id="services-hero">
+      <h1 class="text-5xl font-extrabold mb-4">Our Expertise</h1>
+      <p class="text-xl max-w-2xl mx-auto">From strategy to execution — we create solutions that drive business forward.</p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
+      <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:-translate-y-2" id="srv-1">
+        <div class="text-indigo-600 text-4xl mb-4"><i class="fas fa-code"></i></div>
+        <h3 class="text-2xl font-semibold mb-2">Full Stack Development</h3>
+        <p class="text-gray-600">Build scalable and modern web platforms from frontend to backend.</p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:-translate-y-2" id="srv-2">
+        <div class="text-indigo-600 text-4xl mb-4"><i class="fas fa-tablet-alt"></i></div>
+        <h3 class="text-2xl font-semibold mb-2">Mobile Applications</h3>
+        <p class="text-gray-600">Native & cross-platform mobile apps with great user experience.</p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:-translate-y-2" id="srv-3">
+        <div class="text-indigo-600 text-4xl mb-4"><i class="fas fa-chart-line"></i></div>
+        <h3 class="text-2xl font-semibold mb-2">Marketing & SEO</h3>
+        <p class="text-gray-600">Elevate your reach through targeted SEO, social media, and advertising.</p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:-translate-y-2" id="srv-4">
+        <div class="text-indigo-600 text-4xl mb-4"><i class="fas fa-cloud"></i></div>
+        <h3 class="text-2xl font-semibold mb-2">Cloud Integration</h3>
+        <p class="text-gray-600">Seamless integration with AWS, Azure, GCP for scale and security.</p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:-translate-y-2" id="srv-5">
+        <div class="text-indigo-600 text-4xl mb-4"><i class="fas fa-database"></i></div>
+        <h3 class="text-2xl font-semibold mb-2">Data Engineering</h3>
+        <p class="text-gray-600">Structured pipelines, analytics, and dashboards that drive insight.</p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-lg text-center transition-transform hover:-translate-y-2" id="srv-6">
+        <div class="text-indigo-600 text-4xl mb-4"><i class="fas fa-shield-alt"></i></div>
+        <h3 class="text-2xl font-semibold mb-2">Security & Compliance</h3>
+        <p class="text-gray-600">End-to-end data protection and compliance for modern enterprises.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-6 text-center text-sm text-gray-500">
+    &copy; 2025 ABOX Technologies. Crafting success with innovation.
+  </footer>
+
+  <!-- GSAP Scroll Animations -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("#services-hero", {
+      opacity: 0,
+      y: 40,
+      duration: 1.3,
+      ease: "power2.out"
+    });
+
+    for (let i = 1; i <= 6; i++) {
+      gsap.from(`#srv-${i}`, {
+        scrollTrigger: {
+          trigger: `#srv-${i}`,
+          start: "top 80%"
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        delay: i * 0.05,
+        ease: "power2.out"
+      });
+    }
+  </script>
+</body>
+</html>

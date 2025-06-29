@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abox Technologies - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-3xl font-extrabold text-indigo-600">Abox Technologies</div>
+      <nav class="space-x-6 text-sm font-semibold">
+        <a href="index.html" class="hover:text-indigo-500 transition">Home</a>
+        <a href="about.html" class="hover:text-indigo-500 transition">About</a>
+        <a href="services.html" class="hover:text-indigo-500 transition">Services</a>
+        <a href="portfolio.html" class="text-indigo-600">Portfolio</a>
+        <a href="contact.html" class="hover:text-indigo-500 transition">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative h-[60vh] flex items-center justify-center text-white text-center" style="background: linear-gradient(to right, rgba(99,102,241,0.85), rgba(139,92,246,0.85)), url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1400&q=80'); background-size: cover; background-position: center;">
+    <div id="portfolio-hero">
+      <h1 class="text-5xl font-extrabold mb-4">Our Work</h1>
+      <p class="text-xl max-w-2xl mx-auto">A showcase of the projects that reflect our expertise, creativity, and impact.</p>
+    </div>
+  </section>
+
+  <!-- Portfolio Grid -->
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg project-card transition-transform transform hover:-translate-y-2" id="proj-1">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Project A" class="w-full h-56 object-cover transition-transform duration-300">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2">E-Commerce Platform</h3>
+          <p class="text-gray-600 text-sm">Built a custom online store using Next.js and Stripe, featuring real-time inventory and user dashboards.</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg project-card transition-transform transform hover:-translate-y-2" id="proj-2">
+        <img src="https://s3-alpha.figma.com/hub/file/2914413765/1e8aabd0-3a26-4617-9bb1-b8ad1b1ad426-cover.png" alt="Project B" class="w-full h-56 object-cover transition-transform duration-300">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2">Food Delivery App</h3>
+          <p class="text-gray-600 text-sm">Flutter-based food delivery application with payment integration and location tracking.</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg project-card transition-transform transform hover:-translate-y-2" id="proj-3">
+        <img src="https://i.pinimg.com/736x/ee/b9/af/eeb9af2e190ac65f882f733053d5cbd0.jpg" alt="NGO Awareness Campaign" class="w-full h-56 object-cover transition-transform duration-300">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2">NGO Awareness Campaign</h3>
+          <p class="text-gray-600 text-sm">Created a CMS-driven website to support donations, user engagement, and digital marketing analytics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-6 text-center text-sm text-gray-500">
+    &copy; 2025 ABOX Technologies. Designed for impact.
+  </footer>
+
+  <!-- GSAP Scroll Animations -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("#portfolio-hero", {
+      opacity: 0,
+      y: 40,
+      duration: 1.3,
+      ease: "power2.out"
+    });
+
+    ["#proj-1", "#proj-2", "#proj-3"].forEach((id, i) => {
+      gsap.from(id, {
+        scrollTrigger: {
+          trigger: id,
+          start: "top 80%"
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        delay: i * 0.1,
+        ease: "power2.out"
+      });
+    });
+  </script>
+</body>
+</html>

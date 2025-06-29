@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABOX Technologies - Contact</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-3xl font-extrabold text-indigo-600">ABOX Technologies</div>
+      <nav class="space-x-6 text-sm font-semibold">
+        <a href="index.html" class="hover:text-indigo-500 transition">Home</a>
+        <a href="about.html" class="hover:text-indigo-500 transition">About</a>
+        <a href="services.html" class="hover:text-indigo-500 transition">Services</a>
+        <a href="portfolio.html" class="hover:text-indigo-500 transition">Portfolio</a>
+        <a href="contact.html" class="text-indigo-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative h-[60vh] flex items-center justify-center text-white text-center" style="background: linear-gradient(to right, rgba(99,102,241,0.85), rgba(139,92,246,0.85)), url('https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=1400&q=80'); background-size: cover; background-position: center;">
+    <div id="contact-hero">
+      <h1 class="text-5xl font-extrabold mb-4">Let's Connect</h1>
+      <p class="text-xl max-w-2xl mx-auto">Have a project in mind? We'd love to hear from you and explore the possibilities.</p>
+    </div>
+  </section>
+
+  <!-- Contact Info + Form -->
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+      <!-- Contact Info -->
+      <div id="contact-info">
+        <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
+        <p class="text-gray-600 mb-4">We're available by phone, email, or visit us at our office.</p>
+        <ul class="space-y-4 text-gray-700">
+          <li><i class="fas fa-phone mr-2 text-indigo-500"></i> +91 080 4095 3678</li>
+          <li><i class="fas fa-envelope mr-2 text-indigo-500"></i> info@abox.in</li>
+          <li><i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> Gandhinagar, Bangalore</li>
+        </ul>
+      </div>
+      
+      <!-- Contact Form -->
+      <form id="contact-form" class="bg-white p-8 rounded-xl shadow-lg space-y-6">
+        <h2 class="text-2xl font-bold text-indigo-600">Message Us</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+          <input type="text" placeholder="Your Name" class="border border-gray-300 p-3 rounded-md w-full focus:outline-indigo-500">
+          <input type="email" placeholder="Your Email" class="border border-gray-300 p-3 rounded-md w-full focus:outline-indigo-500">
+        </div>
+        <textarea rows="5" placeholder="Your Message" class="border border-gray-300 p-3 rounded-md w-full focus:outline-indigo-500"></textarea>
+        <button type="submit" class="w-full py-3 px-6 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 transition">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Quote Request Box -->
+    <div id="quote-request" class="max-w-4xl mx-auto mt-20 bg-white p-10 rounded-xl shadow-xl text-center">
+      <h2 class="text-3xl font-bold mb-4 text-indigo-600">Request a Custom Quote</h2>
+      <p class="text-gray-600 mb-6">Let us know about your idea and we’ll get back with a tailored estimate.</p>
+      <form class="grid md:grid-cols-2 gap-4">
+        <input type="text" placeholder="Company / Startup Name" class="border border-gray-300 p-3 rounded-md w-full focus:outline-indigo-500">
+        <input type="email" placeholder="Your Email Address" class="border border-gray-300 p-3 rounded-md w-full focus:outline-indigo-500">
+        <input type="text" placeholder="Project Type (e.g. Website, App)" class="md:col-span-2 border border-gray-300 p-3 rounded-md w-full focus:outline-indigo-500">
+        <textarea rows="4" placeholder="Project Description" class="md:col-span-2 border border-gray-300 p-3 rounded-md w-full focus:outline-indigo-500"></textarea>
+        <button type="submit" class="md:col-span-2 py-3 px-6 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 transition">Get Quote</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-6 text-center text-sm text-gray-500">
+    &copy; 2025 ABOX Technologies. Let’s build something together.
+  </footer>
+
+  <!-- GSAP Animations -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("#contact-hero", {
+      opacity: 0,
+      y: 40,
+      duration: 1.3,
+      ease: "power2.out"
+    });
+
+    gsap.from("#contact-info", {
+      scrollTrigger: {
+        trigger: "#contact-info",
+        start: "top 80%"
+      },
+      opacity: 0,
+      x: -40,
+      duration: 1,
+      ease: "power2.out"
+    });
+
+    gsap.from("#contact-form", {
+      scrollTrigger: {
+        trigger: "#contact-form",
+        start: "top 80%"
+      },
+      opacity: 0,
+      x: 40,
+      duration: 1,
+      ease: "power2.out"
+    });
+
+    gsap.from("#quote-request", {
+      scrollTrigger: {
+        trigger: "#quote-request",
+        start: "top 80%"
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1.1,
+      ease: "power2.out"
+    });
+  </script>
+</body>
+</html>
